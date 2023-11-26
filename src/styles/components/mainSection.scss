@@ -63,8 +63,8 @@ main {
   }
   #cards {
     display: grid;
-    grid-template-columns: repeat(6, 120px);
-    grid-gap: 50px;
+    grid-template-columns: repeat(3, 120px);
+    grid-gap: 200px;
     justify-content: center;
     overflow: hidden;
     width: 100%;

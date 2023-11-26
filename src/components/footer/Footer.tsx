@@ -1,11 +1,14 @@
 import "../../styles/components/footer.scss";
+import { FooterMessage, FooterStyled } from "./Footer.styles";
 
 const Footer = () => {
   return (
     <>
-      <footer>
-        <p>Agência M3 - Agência de Performance Digital</p>
-      </footer>
+      <FooterStyled>
+        <FooterMessage>
+          Agência M3 - Agência de Performance Digital
+        </FooterMessage>
+      </FooterStyled>
     </>
   );
 };

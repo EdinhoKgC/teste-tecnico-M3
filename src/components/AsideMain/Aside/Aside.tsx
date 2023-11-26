@@ -1,164 +1,68 @@
+import Arrow from "../../../assets/img/arrow.svg";
+import "../../../styles/components/aside.scss";
+import CheckBoxColor from "../../CheckBoxColor/CheckBoxColor";
+import {
+  AsideCategoryTitle,
+  AsideContainerMobile,
+  AsideStyled,
+  ButtonMoreLessContainer,
+  CloseFilterButton,
+  FilterColorTitle,
+  FilterMobileButton,
+  FilterMobileContainer,
+  MenuMobileContainer,
+  MenuMobileSpanLess,
+  MenuMobileSpanMore1,
+  SectionColorFilter,
+  UnorderedListColors,
+} from "./Aside.style";
+
 const Aside = () => {
+  const colors = [
+    "amarelo",
+    "azul",
+    "branco",
+    "cinza",
+    "laranja",
+    "verde",
+    "vermelho",
+    "preto",
+    "rosa",
+    "vinho",
+  ];
+
   return (
     <>
-      <aside>
-        <h1>Blusas</h1>
-        <div className="filter-mobile">
-          <p>FILTRAR</p>
+      <AsideStyled>
+        <AsideCategoryTitle>Blusas</AsideCategoryTitle>
+        <FilterMobileContainer>
+          <FilterMobileButton>FILTRAR</FilterMobileButton>
           {/*abaixo onclick="closeMenuFilter()" */}
-          <h2>X</h2>
-        </div>
-        <div className="aside-container">
-          <section className="colors">
-            <div className="menu-mobile">
-              <h3>CORES</h3>
+          <CloseFilterButton>X</CloseFilterButton>
+        </FilterMobileContainer>
+        <AsideContainerMobile>
+          <SectionColorFilter>
+            <MenuMobileContainer>
+              <FilterColorTitle>CORES</FilterColorTitle>
               {/*abaixo onclick="showOptionColor()" */}
-              <div className="btn-more-less">
-                <span className="more1">|</span>
-                <span className="less">|</span>
-              </div>
-            </div>
+              <ButtonMoreLessContainer>
+                <MenuMobileSpanMore1>|</MenuMobileSpanMore1>
+                <MenuMobileSpanLess>|</MenuMobileSpanLess>
+              </ButtonMoreLessContainer>
+            </MenuMobileContainer>
 
-            <ul className="colors-container">
+            <UnorderedListColors>
               <div className="dropDown-color hidden">
-                <li className="color">
-                  <label className="checkbox-container">
-                    {/*abaixo onchange="filterColorAndSize()" */}
-                    <input
-                      type="checkbox"
-                      name="color"
-                      value="Amarelo"
-                      className="checkboxs1"
-                    />
-                    <p>Amarelo</p>
-                  </label>
-                </li>
-
-                <li className="color">
-                  <label className="checkbox-container">
-                    {/*abaixo onchange="filterColorAndSize()" */}
-                    <input
-                      type="checkbox"
-                      name="color"
-                      value="Azul"
-                      className="checkboxs1"
-                    />
-                    <p>Azul</p>
-                  </label>
-                </li>
-
-                <li className="color">
-                  <label className="checkbox-container">
-                    {/*abaixo onchange="filterColorAndSize()" */}
-                    <input
-                      type="checkbox"
-                      name="color"
-                      value="Branco"
-                      className="checkboxs1"
-                    />
-                    <p>Branco</p>
-                  </label>
-                </li>
-
-                <li className="color">
-                  <label className="checkbox-container">
-                    {/*abaixo onchange="filterColorAndSize()" */}
-                    <input
-                      type="checkbox"
-                      name="color"
-                      value="Cinza"
-                      className="checkboxs1"
-                    />
-                    <p>Cinza</p>
-                  </label>
-                </li>
-
-                <li className="color">
-                  <label className="checkbox-container">
-                    {/*abaixo onchange="filterColorAndSize()" */}
-                    <input
-                      type="checkbox"
-                      name="color"
-                      value="Laranja"
-                      className="checkboxs1"
-                    />
-                    <p>Laranja</p>
-                  </label>
-                </li>
-
-                <div className="drop-down hide">
-                  <li className="color">
-                    <label className="checkbox-container">
-                      {/*abaixo onchange="filterColorAndSize()" */}
-                      <input
-                        type="checkbox"
-                        name="color"
-                        value="Verde"
-                        className="checkboxs1"
-                      />
-                      <p>Verde</p>
-                    </label>
-                  </li>
-
-                  <li className="color">
-                    <label className="checkbox-container">
-                      {/*abaixo onchange="filterColorAndSize()" */}
-                      <input
-                        type="checkbox"
-                        name="color"
-                        value="Vermelho"
-                        className="checkboxs1"
-                      />
-                      <p>Vermelho</p>
-                    </label>
-                  </li>
-
-                  <li className="color">
-                    <label className="checkbox-container">
-                      {/*abaixo onchange="filterColorAndSize()" */}
-                      <input
-                        type="checkbox"
-                        name="color"
-                        value="Preto"
-                        className="checkboxs1"
-                      />
-                      <p>Preto</p>
-                    </label>
-                  </li>
-
-                  <li className="color">
-                    <label className="checkbox-container">
-                      {/*abaixo onchange="filterColorAndSize()" */}
-                      <input
-                        type="checkbox"
-                        name="color"
-                        value="Rosa"
-                        className="checkboxs1"
-                      />
-                      <p>Rosa</p>
-                    </label>
-                  </li>
-
-                  <li className="color">
-                    <label className="checkbox-container">
-                      {/*abaixo onchange="filterColorAndSize()" */}
-                      <input
-                        type="checkbox"
-                        name="color"
-                        value="Vinho"
-                        className="checkboxs1"
-                      />
-                      <p>Vinho</p>
-                    </label>
-                  </li>
-                </div>
+                {colors.map((color) => (
+                  <CheckBoxColor type="checkbox" name="color" value={color} />
+                ))}
               </div>
-            </ul>
+            </UnorderedListColors>
             {/*abaixo onclick="showColor()" */}
             <a className="show-colors" href="#">
-              Ver todas as cores <img src="./img/arrow.svg" alt="arrow-down" />
+              Ver todas as cores <img src={Arrow} alt="arrow-down" />
             </a>
-          </section>
+          </SectionColorFilter>
 
           <section className="sizes">
             <div className="menu-mobile">
@@ -378,8 +282,8 @@ const Aside = () => {
             <button className="apply">APLICAR</button>
             <button className="clean">FECHAR</button>
           </div>
-        </div>
-      </aside>
+        </AsideContainerMobile>
+      </AsideStyled>
     </>
   );
 };

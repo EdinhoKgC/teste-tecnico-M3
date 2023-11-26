@@ -1,28 +1,37 @@
+import Logo from "../../assets/img/logo-m3.png";
+import ShoppingBag from "../../assets/img/shopping-bag-icon.png";
 import "../../styles/components/header.scss";
+import {
+  CounterShoppingBag,
+  CounterShoppingBagContainer,
+  HeaderStyled,
+  LogoContainer,
+  LogoImage,
+  RemoveShoppingBag,
+  RemoveShoppingBagContainer,
+  ShoppingBagContainer,
+  ShoppingBagIcon,
+} from "./Header.style";
 
 const Header = () => {
   return (
     <>
-      <header>
-        <div className="logo-container">
-          <img
-            className="header-logo"
-            src="../assets/img/logo-m3.png"
-            alt="Logo M3"
-          />
-        </div>
+      <HeaderStyled>
+        <LogoContainer>
+          <LogoImage className="header-logo" src={Logo} alt="Logo M3" />
+        </LogoContainer>
 
-        <div className="cart-bag">
-          <img src="./img/bag.svg" alt="Shopping-Bag" />
-          <div className="total">
-            <span>0</span>
-          </div>
+        <ShoppingBagContainer>
+          <ShoppingBagIcon src={ShoppingBag} alt="Shopping-Bag" />
+          <CounterShoppingBagContainer>
+            <CounterShoppingBag>0</CounterShoppingBag>
+          </CounterShoppingBagContainer>
           {/*abaixo onclick="removeItem()" */}
-          <div className="remove">
-            <span>-</span>
-          </div>
-        </div>
-      </header>
+          <RemoveShoppingBagContainer>
+            <RemoveShoppingBag>-</RemoveShoppingBag>
+          </RemoveShoppingBagContainer>
+        </ShoppingBagContainer>
+      </HeaderStyled>
     </>
   );
 };

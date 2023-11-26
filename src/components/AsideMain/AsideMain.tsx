@@ -1,6 +1,5 @@
-import "../../styles/components/aside.scss";
-import Aside from "./aside/Aside";
-import Main from "./main/Main";
+import Aside from "./Aside/Aside";
+import Main from "./MainSection/MainSection";
 
 const AsideMain = () => {
   return (

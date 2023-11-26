@@ -1,3 +1,4 @@
+import Arrow2 from "../../../assets/img/arrow-2.svg";
 import "../../../styles/components/mainSection.scss";
 
 const Main = () => {
@@ -15,7 +16,7 @@ const Main = () => {
               {/* abaixo onclick="showSort()" */}
               <div className="sort">
                 <p>Ordenar por</p>
-                <img src="./img/arrow-2.svg" alt="" />
+                <img src={Arrow2} alt="" />
               </div>
               <ul className="sort-options hide">
                 {/* abaixo onclick="sortDate()" */}

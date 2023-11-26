@@ -16,7 +16,7 @@ const paths = {
     watch: "src/**/*.tsx",
   },
   styles: {
-    src: "src/styles/main.scss",
+    src: "../src/styles/main.scss",
   },
   img: {
     src: "src/assets/img/*",
