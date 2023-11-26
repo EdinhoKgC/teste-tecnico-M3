@@ -1,13 +1,14 @@
 import Aside from "./Aside/Aside";
+import { AsideMainContainerStyled } from "./AsideMain.style";
 import Main from "./MainSection/MainSection";
 
 const AsideMain = () => {
   return (
     <>
-      <div className="content-container">
+      <AsideMainContainerStyled>
         <Aside />
         <Main />
-      </div>
+      </AsideMainContainerStyled>
     </>
   );
 };

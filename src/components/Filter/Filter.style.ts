@@ -66,7 +66,7 @@ export const AsideContainerMobile = styled.div`
   }
 `;
 
-export const SectionColorFilter = styled.section`
+export const SectionFilter = styled.section`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -74,7 +74,7 @@ export const SectionColorFilter = styled.section`
   cursor: pointer;
 `;
 
-export const FilterColorTitle = styled.h3`
+export const FilterTitle = styled.h3`
   width: 100%;
   margin-right: 20px;
   margin-top: 30px;
@@ -120,32 +120,10 @@ export const MenuMobileSpanLess = styled.span`
   }
 `;
 
-export const UnorderedListColors = styled.ul`
+export const FilterOptions = styled.ul`
   margin-top: 5px;
   width: 100%;
   height: 100%;
 `;
 
 export const DropDownColorContainer = styled.div``;
-
-export const FilterButtonMobileContainer = styled.div``;
-
-export const FilterButtonMobileApply = styled.button`
-  width: 160px;
-  height: 35px;
-  border: 1px solid #808080;
-  background-color: #00c0ee;
-  font-size: 15px;
-  color: white;
-  opacity: 0.7;
-  margin-left: 10px;
-`;
-
-export const FilterButtonMobileClean = styled.button`
-  border: 1px solid #808080;
-  width: 160px;
-  height: 35px;
-  margin-left: 10px;
-  font-size: 15px;
-  opacity: 0.7;
-`;

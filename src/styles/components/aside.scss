@@ -285,7 +285,7 @@ aside {
         text-align: center;
         width: 100%;
         .clean {
-          border: 1px solid $lightGray;
+          border: 1px solid #808080;
           width: 160px;
           height: 35px;
           margin-left: 10px;
@@ -295,8 +295,8 @@ aside {
         .apply {
           width: 160px;
           height: 35px;
-          border: 1px solid $lightGray;
-          background-color: $blue;
+          border: 1px solid #808080;
+          background-color: #00c0ee;
           font-size: 15px;
           color: white;
           opacity: 0.7;

@@ -1,6 +1,5 @@
 import Logo from "../../assets/img/logo-m3.png";
 import ShoppingBag from "../../assets/img/shopping-bag-icon.png";
-import "../../styles/components/header.scss";
 import {
   CounterShoppingBag,
   CounterShoppingBagContainer,
@@ -18,7 +17,7 @@ const Header = () => {
     <>
       <HeaderStyled>
         <LogoContainer>
-          <LogoImage className="header-logo" src={Logo} alt="Logo M3" />
+          <LogoImage src={Logo} alt="Logo M3" />
         </LogoContainer>
 
         <ShoppingBagContainer>

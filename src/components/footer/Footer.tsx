@@ -1,4 +1,3 @@
-import "../../styles/components/footer.scss";
 import { FooterMessage, FooterStyled } from "./Footer.styles";
 
 const Footer = () => {
