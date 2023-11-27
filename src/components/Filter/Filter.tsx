@@ -1,3 +1,4 @@
+import { useFilter } from "../../hooks/useFilter";
 import { CheckBoxFilter } from "../CheckBoxFilter";
 import {
   ButtonMoreLessContainer,
@@ -21,6 +22,8 @@ interface FilterProps {
 
 const Filter: React.FC<FilterProps> = ({ data }) => {
   const { name, values, style } = data;
+  
+  const { addActiveFilters, removeActiveFilters } = useFilter();
 
   return (
     <SectionFilter>
@@ -39,14 +42,22 @@ const Filter: React.FC<FilterProps> = ({ data }) => {
             switch (style) {
               case "squares":
                 return (
-                  <div className="size">
+                  <div className={name}
+                  key={`${name}-${value}-filter`}>
                     <label className="size-item">
                       {value}
                       <input
                         type="checkbox"
                         className="checkboxs2"
-                        name="size"
-                        value="M"
+                        name={name}
+                        value={value}
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            addActiveFilters(name, value);
+                          } else {
+                            removeActiveFilters(name, value);
+                          }
+                        }}
                       />
                       {/*no input acima onchange="filterColorAndSize()" */}
                     </label>
@@ -55,9 +66,9 @@ const Filter: React.FC<FilterProps> = ({ data }) => {
               default:
                 return (
                   <CheckBoxFilter
-                    key={name}
+                    key={`${name}-${value}-filter`}
                     type="checkbox"
-                    name="color"
+                    name={name}
                     value={value}
                   />
                 );

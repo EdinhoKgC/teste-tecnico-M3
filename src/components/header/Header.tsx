@@ -1,18 +1,18 @@
 import Logo from "../../assets/img/logo-m3.png";
 import ShoppingBag from "../../assets/img/shopping-bag-icon.png";
+import { useCart } from "../../hooks/useCart";
 import {
   CounterShoppingBag,
   CounterShoppingBagContainer,
   HeaderStyled,
   LogoContainer,
   LogoImage,
-  RemoveShoppingBag,
-  RemoveShoppingBagContainer,
   ShoppingBagContainer,
   ShoppingBagIcon,
 } from "./Header.style";
 
 const Header = () => {
+  const { quantity } = useCart();
   return (
     <>
       <HeaderStyled>
@@ -23,12 +23,8 @@ const Header = () => {
         <ShoppingBagContainer>
           <ShoppingBagIcon src={ShoppingBag} alt="Shopping-Bag" />
           <CounterShoppingBagContainer>
-            <CounterShoppingBag>0</CounterShoppingBag>
+            <CounterShoppingBag>{quantity}</CounterShoppingBag>
           </CounterShoppingBagContainer>
-          {/*abaixo onclick="removeItem()" */}
-          <RemoveShoppingBagContainer>
-            <RemoveShoppingBag>-</RemoveShoppingBag>
-          </RemoveShoppingBagContainer>
         </ShoppingBagContainer>
       </HeaderStyled>
     </>

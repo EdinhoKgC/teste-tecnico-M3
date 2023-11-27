@@ -31,6 +31,7 @@ export const ShoppingBagContainer = styled.div`
 export const ShoppingBagIcon = styled.img`
   position: relative;
   top: 10px;
+  left: 50px;
   width: 17px;
   height: 20px;
 `;
@@ -48,9 +49,9 @@ export const CounterShoppingBagContainer = styled.div`
   font-weight: 400;
   line-height: normal;
   top: 20px;
-  right: -5px;
+  left: 60px;
   position: absolute;
-  background-color: $blue;
+  background-color: #00c0ee;
   border-radius: 100%;
 `;
 

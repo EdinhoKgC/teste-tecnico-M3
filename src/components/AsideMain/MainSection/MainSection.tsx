@@ -2,7 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Arrow2 from "../../../assets/img/arrow-2.svg";
 import { endpoint } from "../../../constants";
-import "../../../styles/components/mainSection.scss";
+import { useFilter } from "../../../hooks/useFilter";
+import { Product } from "../../../types/Product";
 import { Card } from "../../Card";
 import SortSelectOptions from "../../SortSelectOptions/SortSelectOptions";
 import {
@@ -25,24 +26,33 @@ import {
   SortSelectTitle,
 } from "./MainSection.style";
 
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  parcelamento: number[];
-  color: string;
-  image: string;
-  size: string[];
-  date: string;
-}
-
 const MainSection = () => {
   const [products, setProducts] = useState<Product[]>([]);
+
+  const { activeFilters } = useFilter();
+
+  const filteredProducts = products.filter((p) => {
+    if (activeFilters["Cores"].values?.length) {
+      return activeFilters["Cores"].values.includes(p.color.toLowerCase());
+    }
+    if (activeFilters["Tamanhos"].values?.length) {
+      return activeFilters["Tamanhos"].values.some((value) =>
+        p.size.includes(value)
+      );
+    }
+    if (activeFilters["Faixa de preço"].values?.length) {
+      return activeFilters["Faixa de preço"].values.some((value) => {
+        const [min, max] = value.split(" a ");
+        return p.price >= Number(min) && p.price <= Number(max);
+      });
+    }
+    return true;
+  });
 
   useEffect(() => {
     axios
       .get(`${endpoint}/products`)
-      .then((response) => setProducts(response.data));
+      .then((response: any) => setProducts(response.data));
   }, []);
 
   return (
@@ -62,14 +72,6 @@ const MainSection = () => {
                 <SortArrowDropDown src={Arrow2} alt="" />
               </SortContainerSelect>
               <SortSelectOptions />
-              <ul className="sort-options-mob">
-                {/* abaixo onclick="sortDate()" */}
-                <li>Mais recentes</li>
-                {/* abaixo onclick="sortLower()" */}
-                <li>Menor preço</li>
-                {/* abaixo onclick="sortHigh()" */}
-                <li>Maior preço</li>
-              </ul>
             </SortContainerButton>
           </SortContainer>
           <MobileFilterContainer>
@@ -82,8 +84,11 @@ const MainSection = () => {
             </MobileFilterButtonContainer>
           </MobileFilterContainer>
           <ProductsSection>
-            {products.map((product) => (
-              <Card key={product.id} product={product} />
+            {filteredProducts.map((product) => (
+              <Card
+                key={`${product.id}-${product.name}-product`}
+                product={product}
+              />
             ))}
           </ProductsSection>
           <ShowMoreContainer>

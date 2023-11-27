@@ -1,4 +1,5 @@
 import React from "react";
+import { useFilter } from "../../hooks/useFilter";
 import {
   CheckBoxInputColor,
   ColorListItem,
@@ -10,21 +11,28 @@ interface CheckBoxFilterProps {
   type: string;
   name: string;
   value: string;
-  key: string;
 }
 
 const CheckBoxFilter: React.FC<CheckBoxFilterProps> = ({
   type,
   name,
   value,
-  key,
 }) => {
+  const { addActiveFilters, removeActiveFilters } = useFilter();
   return (
     <>
       <ColorListItem>
         <ColorListItemLabel>
           {/*abaixo onchange="filterColorAndSize()" */}
-          <CheckBoxInputColor key={key} type={type} name={name} value={value} />
+          <CheckBoxInputColor type={type} name={name} value={value} onChange={
+            (e) => {
+              if (e.target.checked) {
+                addActiveFilters(name, value);
+              } else {
+                removeActiveFilters(name, value);
+              }
+            }
+          } />
           <ColorListItemName>{value}</ColorListItemName>
         </ColorListItemLabel>
       </ColorListItem>

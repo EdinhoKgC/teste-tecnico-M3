@@ -13,7 +13,7 @@ export const CardImageContainer = styled.div`
   width: 100%;
 `;
 
-export const ButtonContainer = styled.button`
+export const ButtonContainer = styled.div`
   width: 100%;
 `;
 

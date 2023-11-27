@@ -22,7 +22,7 @@ export const filters = [
   },
   {
     name: "Faixa de preço",
-    values: ["50", "150", "300", "500", "1000"],
+    values: ["0 a 50", "50 a 150", "150 a 300", "300 a 500", "500 a 1000", "1000"],
     style: "checkbox",
   }
 ];

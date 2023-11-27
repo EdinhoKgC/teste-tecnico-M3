@@ -1,5 +1,4 @@
 import { filters } from "../../../constants";
-import "../../../styles/components/aside.scss";
 import { Filter } from "../../Filter";
 import {
   AsideCategoryTitle,

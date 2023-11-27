@@ -1,3 +1,4 @@
+import { useCart } from "../../hooks/useCart";
 import { formatoReal } from "../../utils";
 import {
   ButtonBuy,
@@ -22,6 +23,7 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ product }) => {
+  const { addToCart } = useCart()
   return (
     <CardContainer>
       <CardImageContainer>
@@ -38,7 +40,7 @@ const Card: React.FC<CardProps> = ({ product }) => {
       </CardInfoContainer>
 
       <ButtonContainer>
-        <ButtonBuy key={product.id} type="button">
+        <ButtonBuy key={product.id} type="button" onClick={addToCart}>
           COMPRAR
         </ButtonBuy>
       </ButtonContainer>
